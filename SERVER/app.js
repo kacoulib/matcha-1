@@ -4,14 +4,17 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var debug = require('debug')('matcha:http');
 var logger = require('morgan');
-//var io = require('socket.io').listen(http);
 var routes = require('../CLIENT/routes/index.js');
 
 app.use(logger('dev'));
 app.use(express.static(__dirname + '/../CLIENT/'));
+
+// 404 not found
 app.use(function (req, res, next) {
   res.status(404).send('<html><h1>404 page not found</h1></html>');
 });
+
+// 500 internal
 app.use(function (err, req, res, next) {
   res.status(err.statusCode || err.status || 500);
   if (req.xhr || req.accepts(['html', 'json']) === 'json') {
@@ -20,6 +23,8 @@ app.use(function (err, req, res, next) {
     res.status(500).send('<html><h1>500 internal</h1></html>');
   }
 });
+
+
 app.use('/', routes);
 
 io.on('connection', function(socket) {
