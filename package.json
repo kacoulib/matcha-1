@@ -1,0 +1,23 @@
+{
+  "name": "matcha",
+  "version": "1.0.0",
+  "description": "Second web project from 42's school",
+  "main": "SERVER/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yfuks/matcha.git"
+  },
+  "author": "yfuks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yfuks/matcha/issues"
+  },
+  "homepage": "https://github.com/yfuks/matcha#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8"
+  }
+}
