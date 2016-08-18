@@ -7,9 +7,10 @@ var logger = require('morgan');
 var underscoreTemplate = require('./util/underscore-template');
 var bodyParser = require('body-parser');
 var session = require('./app/middlewares/session');
+var path = require('path');
 
 app.use(logger('dev'));
-app.use(express.static(__dirname + '/../public/'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
