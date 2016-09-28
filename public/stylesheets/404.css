@@ -1,0 +1,44 @@
+.main {
+  text-align: center;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+a {
+  font-size: 30px;
+  color: #8C4C68;
+  text-decoration: none;
+}
+
+.text {
+  opacity: 0.7;
+  font-size: 40px;
+}
+
+.button {
+  color: white;
+  border: 3px solid #8C4C68;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+  font-size: 21px;
+  background-color: #8C4C68;
+  margin-top: 50px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+}
+
+.home-link {
+  color: inherit;
+  font-size: inherit;
+}

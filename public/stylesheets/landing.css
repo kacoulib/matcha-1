@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/couple.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form {
+  margin-top: 35px;
+}
+
+a {
+  color: black;
+  margin-bottom: 0px;
+}
+
+.form {
+  position: absolute;
+  top: 20vh;
+  right: 150px;
+  width: 400px;
+  height: 450px;
+  background-color: white;
+  opacity: 0.95;
+  text-align: center;
+  -webkit-animation-name: animateopacity;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animateopacity;
+  animation-duration: 1.5s;
+}
+
+.logo {
+  width: 135px;
+  margin-top: 20px;
+}
+
+.input {
+  width: 315px;
+  padding-left: 10px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border: 2px solid #AAA;
+}
+
+.input:focus {
+  border: 2px solid #8C4C68;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+  outline: none;
+}
+
+.button-submit {
+  border-style: none;
+  width: 250px;
+  height: 50px;
+  color: white;
+  font-size: 21px;
+  background-color: #8C4C68;
+  border: 3px solid #8C4C68;
+  margin-top: 50px;
+}
+
+.button-submit:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+}
+
+.signup {
+  margin-top: 2px;
+}
+
+@-webkit-keyframes animateopacity {
+  from {top: -300px; opacity: 0}
+  to {top: 20vh; opacity: 0.95}
+}
+
+@keyframes animateopacity {
+  from {top: -300px; opacity: 0}
+  to {top: 20vh; opacity: 0.95}
+}
