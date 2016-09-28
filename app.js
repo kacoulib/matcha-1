@@ -25,6 +25,7 @@ app.use(require('./app/routes/index'));
 
 // routes authenticates
 app.use(require('./app/authentication/login'));
+app.use(require('./app/authentication/signup'));
 
 // 404 not found
 app.use(function(req, res, next){
