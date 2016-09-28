@@ -12,7 +12,7 @@ form {
 }
 
 a {
-  color: black;
+  color: #777;
   margin-bottom: 0px;
 }
 
@@ -74,6 +74,15 @@ a {
 
 .signup {
   margin-top: 2px;
+  color: #777;
+}
+
+@media screen and (max-height: 600px) {
+  .form {top: calc(50% - 225px)}
+}
+
+@media screen and (max-width: 1000px) {
+  .form {right: calc(50% - 200px);}
 }
 
 @-webkit-keyframes animateopacity {
