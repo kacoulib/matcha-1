@@ -29,6 +29,9 @@ a {
   -webkit-animation-duration: 1.5s;
   animation-name: animateopacity;
   animation-duration: 1.5s;
+  -webkit-box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.6);
+  box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.6);
 }
 
 .logo {

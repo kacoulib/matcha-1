@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+.navbar {
+  width: 100%;
+  height: 75px;
+  background-color: #8C4C68;
+  -webkit-box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+  box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+}

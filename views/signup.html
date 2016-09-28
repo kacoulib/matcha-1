@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MATCHA - SIGNUP</title>
+		<link rel='stylesheet' href='/stylesheets/signup.css' />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+	</head>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script>
+  	var socket = io();
+	</script>
+	<body>
+    <%- partial('header') %>
+			<form>
+        <div class="label-sign">SIGNUP</div>
+				<input class="input" type="mail" placeholder="email">
+        <input class="input" type="text" placeholder="username">
+        <input class="input" type="text" placeholder="name">
+        <input class="input" type="text" placeholder="first name">
+				<input class="input" type="password" placeholder="password">
+				<input class="button-submit" type="submit" name="connexion" value="sign up">
+			</form>
+	</body>
+</html>
