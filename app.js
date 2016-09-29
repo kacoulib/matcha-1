@@ -7,6 +7,7 @@ var logger = require('morgan');
 var underscoreTemplate = require('./util/underscore-template');
 var bodyParser = require('body-parser');
 var session = require('./app/middlewares/session');
+var passport = require('./app/authentication/passport');
 var path = require('path');
 
 app.use(logger('dev'));
@@ -15,6 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session);
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 // template engine
 app.engine('html', underscoreTemplate.express({}));
@@ -26,6 +29,7 @@ app.use(require('./app/routes/index'));
 // routes authenticates
 app.use(require('./app/authentication/login'));
 app.use(require('./app/authentication/signup'));
+app.use(require('./app/authentication/forgot'));
 
 // 404 not found
 app.use(function(req, res, next){
