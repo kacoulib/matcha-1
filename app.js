@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session);
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // template engine
 app.engine('html', underscoreTemplate.express({}));
@@ -69,6 +69,7 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(3000, function () {
-	debug('Listening on port 3000');
+var port = process.env.PORT || 3000;
+var server = http.listen(port, function () {
+	debug('Listening on port ' + + server.address().port);
 });
