@@ -5,7 +5,7 @@ module.exports = session({
   secret: conf.sessions.secret,
   key: conf.sessions.key,
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     domain: conf.fqdn,
     maxAge: conf.sessions.ttl

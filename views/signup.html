@@ -1,3 +1,4 @@
+<% if (typeof userFields == 'undefined') userFields = {} %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,11 +15,17 @@
     <%- partial('header') %>
 			<form method="post">
         <div class="label-sign">SIGNUP</div>
-				<input class="input" type="mail" placeholder="email" name="email">
-        <input class="input" type="text" placeholder="username" name="username">
-        <input class="input" type="text" placeholder="name" name="name">
-        <input class="input" type="text" placeholder="first name" name="firstName">
+				<input class="input" type="mail" placeholder="email" name="email" value='<%- userFields.email %>'>
+				<div class="input-validators">Sould be a valid address</div>
+        <input class="input" type="text" placeholder="username" name="username" value='<%- userFields.username %>'>
+				<div class="input-validators">Sould be only letters and numbers</div>
+        <input class="input" type="text" placeholder="name" name="name" value='<%- userFields.name %>'>
+				<div class="input-validators">Sould be only letters</div>
+        <input class="input" type="text" placeholder="first name" name="firstName" value='<%- userFields.firstName %>'>
+				<div class="input-validators">Sould be only letters</div>
 				<input class="input" type="password" placeholder="password" name="password">
+				<div class="input-validators">Between 4 and 255 characters only letters and numbers</div>
+				<%- partial('errors') %>
 				<input class="button-submit" type="submit" name="connexion" value="sign up">
 			</form>
 	</body>

@@ -8,6 +8,7 @@ var underscoreTemplate = require('./util/underscore-template');
 var bodyParser = require('body-parser');
 var session = require('./app/middlewares/session');
 var passport = require('./app/authentication/passport');
+var expressValidator = require('./util/validator.js');
 var path = require('path');
 
 app.use(logger('dev'));
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(expressValidator());
 app.use(session);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -25,6 +27,7 @@ app.set('view engine', 'html');
 
 // routes
 app.use(require('./app/routes/index'));
+app.use(require('./app/routes/app'));
 
 // routes authenticates
 app.use(require('./app/authentication/login'));
