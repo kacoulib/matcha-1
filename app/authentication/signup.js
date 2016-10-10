@@ -71,6 +71,8 @@ router.route('/signup')
         if (err) {
           return next(err);
         }
+        if (user && user.username)
+          debug('Authenticate user : ' + user.username);
         return res.redirect('/app');
       });
     })(req, res, next);

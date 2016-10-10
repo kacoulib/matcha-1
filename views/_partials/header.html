@@ -1,3 +1,7 @@
 <nav class="navbar">
-  <!--img class="logo-header" src="./images/logo.png"></img-->
+  <% if (typeof user != 'undefined') { %>
+    <div class="button-header"><a class="links" href="./logout">logout</a></div>
+  <% } else { %>
+    <div class="button-header"><a class="links" href="./">login</a></div>
+  <% } %>
 </nav>

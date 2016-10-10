@@ -10,3 +10,18 @@ body {
   -moz-box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
   box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
 }
+
+.button-header {
+  text-align: right;
+}
+.links {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 75px;
+  margin-right: 20px;
+}
+.links:hover {
+  text-decoration: underline;
+}

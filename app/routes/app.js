@@ -2,12 +2,17 @@ var express = require('express');
 var router = express.Router();
 var debug = require('debug')('matcha:routes');
 
-router.get('/app', [], function (req, res) {
-  debug(req.user);
-  if (req.isAuthenticated()) {
-    return res.render('app', {});
-  }
-  return res.redirect('/');
+function isLoggedIn(req, res, next) {
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+    return next();
+
+  // if they aren't redirect them to the home page
+  res.redirect('/');
+}
+
+router.get('/app', [isLoggedIn], function (req, res) {
+  return res.render('app', { user: req.user });
 });
 
 module.exports = router;

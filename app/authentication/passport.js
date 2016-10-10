@@ -6,12 +6,14 @@ var User = require('../schemas/user');
 
 // serialize user for the session
 passport.serializeUser(function (user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
 // deserialize user
 passport.deserializeUser(function (id, done) {
-  done(null, user);
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 var localStrategyOptions = {
@@ -25,7 +27,7 @@ passport.use('local-signup', new LocalStrategy(localStrategyOptions,
   function (req, username, password, done) {
     process.nextTick(function () {
       if (req.user) {
-        debug(req.user);
+        debug('User allready connected : ' + req.user.username);
         // user already connected
       }
 
@@ -53,7 +55,7 @@ passport.use('local-signup', new LocalStrategy(localStrategyOptions,
         usr.name = req.body.name;
         usr.username = username;
         usr.firstname = req.body.firstName;
-        usr.password = password;
+        usr.password = usr.generateHash(password);
         usr.save(function (err) {
           if (err) {
             return done(err);

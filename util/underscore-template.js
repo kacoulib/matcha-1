@@ -39,8 +39,6 @@ Renderer.prototype.resolve = function (directory, template) {
 };
 
 Renderer.prototype.render = function (template, variables, callback) {
-  logger('Renderer render called for ' + template);
-
   variables = _.extend(this.consolidateConfiguration, this.defaultVariables, variables);
 
   // launch initial rendering (expected view)
@@ -78,8 +76,6 @@ Renderer.prototype.renderView = function (template, variables, content, callback
   };
 
   _variables.partial = function (_template, partialVariables) {
-    logger('include partial', _template);
-
     var key = '#!_comprise_' + (partialsIndex++) + '_partial_!#';
 
     var vars;
@@ -126,8 +122,6 @@ Renderer.prototype.renderView = function (template, variables, content, callback
 };
 
 Renderer.prototype.renderPartials = function (partials, html, callback) {
-  logger('render partials');
-
   var that = this;
   async.each(partials, function (partial, fn) {
     var filename = that.resolve(that.partialDir, partial.template);
@@ -142,7 +136,6 @@ Renderer.prototype.renderPartials = function (partials, html, callback) {
 
       html = html.replace(partial.key, _html);
 
-      logger('partial ' + partial.template + ' replaced in key ' + partial.key);
       return fn(null);
     });
   }, function (err) {
@@ -150,7 +143,6 @@ Renderer.prototype.renderPartials = function (partials, html, callback) {
       return callback(err);
     }
 
-    logger('partials done');
     return callback(null, html);
   });
 };
@@ -160,7 +152,6 @@ exports.Renderer = Renderer;
 // Express 4.0
 exports.express = function (options) {
   return function (filename, variables, callback) {
-    logger('express render function called for ' + filename + ' with callback: ' + !!(_.isFunction(callback)));
     new Renderer(options).render(filename, variables, callback);
   };
 };

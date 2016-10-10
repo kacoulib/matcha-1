@@ -2,18 +2,21 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var debug = require('debug')('matcha:http');
+var debug = require('debug')('matcha:io');
 var logger = require('morgan');
 var underscoreTemplate = require('./util/underscore-template');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('./app/middlewares/session');
 var passport = require('./app/authentication/passport');
 var expressValidator = require('./util/validator.js');
 var path = require('path');
+var conf = require('./config/index.js');
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
@@ -30,7 +33,6 @@ app.use(require('./app/routes/index'));
 app.use(require('./app/routes/app'));
 
 // routes authenticates
-app.use(require('./app/authentication/login'));
 app.use(require('./app/authentication/signup'));
 app.use(require('./app/authentication/forgot'));
 
@@ -40,7 +42,7 @@ app.use(function(req, res, next){
 
   // respond with html page
   if (req.accepts('html')) {
-    res.render('404', { url: req.url });
+    res.render('404', { url: req.url, fqdn: conf.fqdn });
     return;
   }
 
@@ -66,7 +68,7 @@ app.use(function (err, req, res, next) {
 });
 
 io.on('connection', function(socket) {
-	debug('New connection');
+	debug('New socket connection');
 	socket.on('disconnect', function() {
 		debug('User disconnected');
   });
