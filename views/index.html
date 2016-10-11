@@ -6,10 +6,6 @@
 		<title>MATCHA</title>
 		<link rel='stylesheet' href='/stylesheets/landing.css' />
 	</head>
-	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-	<script>
-  	var socket = io();
-	</script>
 	<body>
 		<div class="form">
 			<img class="logo" src="./images/logo.png"></img>
@@ -19,6 +15,7 @@
 				<%- partial('errors') %>
 				<input class="button-submit" type="submit" name="connexion" value="sign in">
 				<div class="signup">Don't have an account? <a href="./signup">Sign up</a></div>
+				<div class="signup">Forget password? <a href="./forgot">Reset</a></div>
 			</form>
 		</div>
 	</body>

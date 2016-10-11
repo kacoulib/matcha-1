@@ -1,0 +1,25 @@
+form {
+  position: absolute;
+  top: calc(50% - 117px);
+  left: calc(50% - 200px);
+  width: 400px;
+  background-color: #EEE;
+  text-align: center;
+  -webkit-animation-name: animateopacity;
+  -webkit-animation-duration: 1s;
+  animation-name: animateopacity;
+  animation-duration: 1s;
+  -webkit-box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+  box-shadow: 10px 10px 73px 0px rgba(0,0,0,0.35);
+}
+
+@-webkit-keyframes animateopacity {
+  from {top: -300px; opacity: 0}
+  to {top: calc(50% - 257px); opacity: 1}
+}
+
+@keyframes animateopacity {
+  from {top: -300px; opacity: 0}
+  to {top: calc(50% - 117px); opacity: 1}
+}

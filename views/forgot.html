@@ -1,0 +1,21 @@
+<% if (typeof userFields == 'undefined') userFields = {} %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MATCHA - SIGNUP</title>
+		<link rel='stylesheet' href='/stylesheets/signup.css' />
+    <link rel='stylesheet' href='/stylesheets/header.css' />
+    <link rel='stylesheet' href='/stylesheets/forgot.css' />
+	</head>
+	<body>
+    <%- partial('header') %>
+			<form method="post">
+        <div class="label-sign">FORGOT</div>
+				<input class="input" type="mail" placeholder="email" name="email" value='<%- userFields.email %>'>
+				<div class="input-validators">Sould be a valid address</div>
+				<%- partial('errors') %>
+				<input class="button-submit" type="submit" name="connexion" value="send">
+			</form>
+	</body>
+</html>

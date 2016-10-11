@@ -10,6 +10,7 @@ var userSchema = new Schema({
   firstname: String,
   username: String,
   password: String,
+  resetToken: String,
   gender: String,
   preference: String,
   bio: String,
@@ -17,8 +18,7 @@ var userSchema = new Schema({
   photos: [String],
   created_at: { type: Date, default: Date.now },
   lastlogin_at: {type: Date, default: Date.now },
-  online: Boolean,
-  confirmed: { type: Boolean, default: false }
+  online: Boolean
 });
 
 userSchema.statics.getNewUser = function () {
