@@ -16,7 +16,7 @@ var userSchema = new Schema({
   interest: [String],
   photos: [String],
   created_at: { type: Date, default: Date.now },
-  lastlogin_at: {type: Date},
+  lastlogin_at: {type: Date, default: Date.now },
   online: Boolean,
   confirmed: { type: Boolean, default: false }
 });
@@ -30,7 +30,7 @@ userSchema.methods.generateHash = function(password) {
 };
 
 userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
+    return bcrypt.compareSync(password, this.password);
 };
 
 module.exports = mongoose.model('User', userSchema);

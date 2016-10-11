@@ -67,4 +67,42 @@ passport.use('local-signup', new LocalStrategy(localStrategyOptions,
   })
 );
 
+passport.use('local-signin', new LocalStrategy(localStrategyOptions,
+  function (req, username, password, done) {
+    process.nextTick(function () {
+      if (req.user) {
+        debug('User allready connected : ' + req.user.username);
+        // user already connected
+      }
+
+      username = username.toLowerCase();
+      // username input can be filled with email or username
+      var regexMail = '^' + username + '$';
+      var regexUsername = '^' + username + '$';
+      User.findOne({$or : [{ 'mail': {$regex: regexMail, $options: 'i'}}, {'username': {$regex: regexUsername, $options: 'i'} }]}, function (err, user) {
+        if (err) {
+          return done(err);
+        }
+
+        if (!user) {
+          return done('User not found');
+        }
+
+        if (!user.validPassword(password)) {
+          return done('Invalid password');
+        }
+
+        user.lastlogin_at = Date.now();
+        user.save(function (err) {
+          if (err) {
+            logger.error(err);
+          }
+
+          done(null, user);
+        });
+      });
+    });
+  })
+);
+
 module.exports = passport;

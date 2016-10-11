@@ -21,7 +21,6 @@ a {
   top: 20vh;
   right: 150px;
   width: 400px;
-  height: 450px;
   background-color: white;
   opacity: 0.95;
   text-align: center;
@@ -78,6 +77,17 @@ a {
 .signup {
   margin-top: 2px;
   color: #777;
+}
+
+.errors {
+  background-color: #FF5B5B;
+  text-align: left;
+  padding-left: 10px;
+  margin-left: 35px;
+  margin-right: 35px;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: #FFF;
 }
 
 @media screen and (max-height: 600px) {

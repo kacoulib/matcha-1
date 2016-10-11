@@ -1,3 +1,4 @@
+<% if (typeof userFields == 'undefined') userFields = {} %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,8 +14,9 @@
 		<div class="form">
 			<img class="logo" src="./images/logo.png"></img>
 			<form method="post">
-				<input class="input" type="text" placeholder="username or email">
-				<input class="input" type="password" placeholder="password">
+				<input class="input" type="text" placeholder="username or email" name="username" value='<%- userFields.username %>'>
+				<input class="input" type="password" placeholder="password" name="password">
+				<%- partial('errors') %>
 				<input class="button-submit" type="submit" name="connexion" value="sign in">
 				<div class="signup">Don't have an account? <a href="./signup">Sign up</a></div>
 			</form>
